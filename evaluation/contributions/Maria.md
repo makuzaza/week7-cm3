@@ -38,6 +38,12 @@ The tests include:
 
 This ensures that the API works correctly under different scenarios.
 
+### Deployment
+
+I deployed Vehicle Rental APP V2 (With Authentication) to Render:
+
+https://week7-cm3-d7o4.onrender.com/
+
 ### Database Setup
 
 I configured the application to use separate MongoDB databases for API versions.
@@ -83,3 +89,11 @@ My role in the project was to design and implement the V2 backend API with authe
 I created protected CRUD endpoints, implemented user authentication (signup and login), and wrote automated tests using Jest and Supertest.
 
 I also configured the application to use separate MongoDB databases for API V2, tested the application locally, and prepared the backend for cloud deployment.
+
+![Screenshot](../../frontend_V2/public/1.png)
+
+![Screenshot](../../frontend_V2/public/2.png)
+
+![Screenshot](../../frontend_V2/public/3.png)
+
+![Screenshot](../../frontend_V2/public/4.png)
