@@ -12,6 +12,8 @@ I wrote tests for the API endpoints using Jest and Supertest to verify that the 
 
 One challenge I faced was related to testing with MongoDB. Initially, my tests were not working because the test MongoDB URI was not configured correctly for the local environment. After investigating the issue, I realized that the tests were not connecting to the correct testing database. Once I fixed the configuration, the tests worked as expected.
 
+I also faced challenges with deploying the frontend. After troubleshooting the configuration and testing different solutions, I was able to successfully deploy it.
+
 ## What I learned?
 
 During this project I learned how to implement authentication in a backend API, write automated tests with Jest and Supertest, and configure MongoDB databases for different environments.
