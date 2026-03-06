@@ -17,8 +17,16 @@ connectDB();
 // Routes
 app.use('/api/vehicleRentals', vehicleRentalRouter);
 
+// --- Static files ---
+app.use(express.static('view'));       // Serve frontend assets
+
 // Error handling
 app.use(unknownEndpoint);
 app.use(errorHandler);
+
+// --- SPA fallback (must be last) ---
+app.use((req, res) => {
+  res.sendFile(__dirname + '/view/index.html');
+});
 
 module.exports = app;
