@@ -1,4 +1,4 @@
-# Markus Kannisto - Contributions
+# Mikael Nyman - Contributions
 
 ## Features Implemented
 
