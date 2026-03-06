@@ -170,6 +170,37 @@ describe("PUT /api/vehicleRentals/:id", () => {
   });
 });
 
+describe("DELETE /api/vehicleRentals/:id", () => {
+  it("should return 204 and delete a vehicle rental by the ID", async () => {
+    const example = { ...example1 };
+
+    const newVehicleResponse = await api
+      .post("/api/vehicleRentals")
+      .send(example)
+      .expect(201);
+
+    const newVehicleData = newVehicleResponse.body;
+    const id = newVehicleData._id;
+
+    expect(newVehicleData.vehicleModel).toBe(example.vehicleModel);
+
+    const response = await api
+      .delete("/api/vehicleRentals/" + id)
+      .expect(204);
+  });
+  it("should return 400 for an invalid ID format", async () => {
+    await api
+      .delete("/api/vehicleRentals/invalid_format")
+      .expect(400);
+  });
+  it("should return 404 for a non-existing object", async () => {
+    const id = new mongoose.Types.ObjectId();
+    await api
+      .delete("/api/vehicleRentals/" + id)
+      .expect(404);
+  });
+});
+
 afterAll(async () => {
   await mongoose.connection.close();
 });
