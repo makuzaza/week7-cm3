@@ -35,4 +35,6 @@ vehicleRentalSchema.set('toJSON', {
   }
 });
 
-module.exports = mongoose.model("Vehicle", vehicleRentalSchema);
+const Vehicle = mongoose.model("VehicleRental", vehicleRentalSchema);
+
+module.exports = Vehicle;

@@ -11,6 +11,7 @@ const generateToken = (_id) => {
 // @route   POST /api/users/signup
 // @access  Public
 const signupUser = async (req, res) => {
+  try {
   const {
     name,
     username,
@@ -24,7 +25,6 @@ const signupUser = async (req, res) => {
     yearsOfExperience
     }
   } = req.body;
-  try{
     if (
       !name ||
       !username ||
