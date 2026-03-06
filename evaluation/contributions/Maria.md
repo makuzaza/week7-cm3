@@ -31,7 +31,6 @@ I implemented automated tests using Jest and Supertest.
 
 The tests include:
 
-- Tests for all API V1 endpoints
 - Tests for all API V2 endpoints
 - Authentication tests for protected routes
 - Tests for successful responses
@@ -72,6 +71,7 @@ For deployment:
 - refactor: update userController
 - feat: Iteration 9 - create tests for the cars and users: include success cases, error handling, and edge cases
 - feat: Iteration 10 - update README with example data
+- feat: Iteration 11 - add my files to evaluation folder"
 
 ### Pull requests
 - *#1* API V2 (With Authentication)
