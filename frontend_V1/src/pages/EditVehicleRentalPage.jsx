@@ -1,4 +1,5 @@
 const EditVehicleRentalPage = () => {
+  
   return (
     <div className="create">
       <h2>Update Vehicle Rental</h2>
