@@ -41,3 +41,20 @@ Update a vehicle rental.
 
 ### `DELETE /api/vehicleRentals/:vehicleRentalId`
 Delete a vehicle rental.
+
+Example of the signup data:
+```json
+{
+  "name": "maria maria",
+  "username": "maria ku",
+  "password": "1234",
+  "phone_number": "+358409876543",
+  "licenseNumber": "FI-DRV-1234567825",
+  "date_of_birth": "1995-09-21T00:00:00.000Z",
+  "address": {
+    "licenseExpiryDate": "2029-06-30T00:00:00.000Z",
+    "city": "Espoo",
+    "yearsOfExperience": 8
+  }
+}
+```
