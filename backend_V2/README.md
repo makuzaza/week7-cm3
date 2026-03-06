@@ -15,10 +15,10 @@ JWT token is required for protected routes:
 
 ## User Routes (`/api/users`)
 
-### `POST /api/users/login`
+### `POST /api/auth/login`
 Login user.
 
-### `POST /api/users/signup`
+### `POST /api/auth/signup`
 Register user.
 
 ---

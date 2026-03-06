@@ -13,7 +13,7 @@ app.use(requestLogger);
 
 // Routes
 app.use('/api/vehicleRentals', vehicleRentalRouter);
-app.use('/api/users', userRouter);
+app.use('/api/auth', userRouter);
 
 // Error handling
 app.use(unknownEndpoint);
