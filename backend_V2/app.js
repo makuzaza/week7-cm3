@@ -23,7 +23,7 @@ app.use('/api/auth', userRouter);
 app.use(express.static('view'));  
 
 // Error handling
-app.use(unknownEndpoint);
+app.use('/api', unknownEndpoint);
 app.use(errorHandler);
 
 // React fallback
