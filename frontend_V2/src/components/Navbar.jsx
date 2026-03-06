@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
   const handleClick = () => {
     setIsAuthenticated(false);
@@ -6,20 +8,21 @@ const Navbar = ({ isAuthenticated, setIsAuthenticated }) => {
 
   return (
     <nav className="navbar">
-      <h1>Vehicle Rental</h1>
+      <Link to="/">
+        <h1>Vehicle Rental</h1>
+      </Link>
       <div className="links">
-        <a href="/">Home</a>
         {isAuthenticated && (
           <div>
-            <a href="/add-rental">Add Rental</a>
-            <span>{JSON.parse(localStorage.getItem("user")).email}</span>
+            <Link to="/add-rental">Add Rental</Link>
+            <span>{JSON.parse(localStorage.getItem("user")).username}</span>
             <button onClick={handleClick}>Log out</button>
           </div>
         )}
         {!isAuthenticated && (
           <div>
-            <a href="/login">Login</a>
-            <a href="/signup">Signup</a>
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Signup</Link>
           </div>
         )}
       </div>

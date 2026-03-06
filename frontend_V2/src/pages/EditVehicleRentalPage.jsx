@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const EditVehicleRentalPage = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const token = user ? user.token : null;
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -75,7 +77,8 @@ const EditVehicleRentalPage = () => {
     await fetch(`/api/vehicleRentals/${id}`, {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
       },
       body: JSON.stringify(properties)
     });
