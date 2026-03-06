@@ -1,4 +1,4 @@
-# Markus Kannisto - Self Assessment
+# Maria Kuznetsova - Self Assessment
 
 ## Quality and functionality of the code
 
