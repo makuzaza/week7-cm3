@@ -1,6 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 // pages & components
 import Home from "./pages/HomePage";
@@ -29,13 +28,13 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route
-              path="/rental/:id"
+              path="/rentals/:id"
               element={<VehicleRentalPage isAuthenticated={isAuthenticated} />}
             />
             <Route
               path="/add-rental"
               element={
-                isAuthenticated ? <AddVehicleRentalPage /> : <></>
+                isAuthenticated ? <AddVehicleRentalPage /> : <Navigate to="/signup" />
               }
             />
             <Route
@@ -44,7 +43,7 @@ const App = () => {
                 isAuthenticated ? (
                   <EditVehicleRentalPage />
                 ) : (
-                  <></>
+                  <Navigate to="/signup" />
                 )
               }
             />
@@ -52,7 +51,7 @@ const App = () => {
               path="/signup"
               element={
                 isAuthenticated ? (
-                  <></>
+                  <Navigate to="/" />
                 ) : (
                   <Signup setIsAuthenticated={setIsAuthenticated} />
                 )
@@ -62,7 +61,7 @@ const App = () => {
               path="/login"
               element={
                 isAuthenticated ? (
-                  <></>
+                  <Navigate to="/" />
                 ) : (
                   <Login setIsAuthenticated={setIsAuthenticated} />
                 )
