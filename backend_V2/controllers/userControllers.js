@@ -11,19 +11,20 @@ const generateToken = (_id) => {
 // @route   POST /api/users/signup
 // @access  Public
 const signupUser = async (req, res) => {
-  try {
-    const name = req.body.name || req.body.fullName;
-    const username = req.body.username; 
-    const password = req.body.password;
-    const phone_number = req.body.phone_number || req.body.phoneNumber;
-    const licenseNumber = req.body.licenseNumber;
-    const date_of_birth = req.body.date_of_birth;
-    const address = req.body.address || {};
-
-    const licenseExpiryDate = address.licenseExpiryDate;
-    const city = address.city;
-    const yearsOfExperience = address.yearsOfExperience;
-
+  const {
+    name,
+    username,
+    password,
+    phone_number,
+    licenseNumber,
+    date_of_birth,
+    address: {
+    licenseExpiryDate,
+    city,
+    yearsOfExperience
+    }
+  } = req.body;
+  try{
     if (
       !name ||
       !username ||
@@ -65,18 +66,15 @@ const signupUser = async (req, res) => {
       },
     });
 
-    const token = generateToken(user._id);
-    return res.status(201).json({
-      _id: user._id,
-      username: user.username,
-      token,
-    });
-  } catch (error) {
-    // Duplicate key fallback
-    if (error.code === 11000) {
-      return res.status(400).json({ error: "Duplicate unique field value" });
+    if (user) {
+      const token = generateToken(user._id);
+      res.status(201).json({ username, token });
+    } else {
+      res.status(400);
+      throw new Error("Invalid user data");
     }
-    return res.status(400).json({ error: error.message });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
 };
 
